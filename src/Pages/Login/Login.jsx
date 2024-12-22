@@ -35,7 +35,7 @@ const Login = () => {
                 className="input input-bordered"
                 required
               />
-              <label className="label">
+              <label className="label font-bold text-blue-600">
                 <Link to="/register">Create An Account! If You Don't Have</Link>
               </label>
             </div>

@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../../Context/AuthContext/AuthContext";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    // password validation
+    const isValid = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password);
+    if (!isValid) {
+      alert("Password is not valid");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    console.log({ name, email, password, photo });
+  };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -13,7 +40,7 @@ const Registration = () => {
               Have Created An Account Then You Can Login Here Now
             </p>
           </div>
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             {/* name  */}
             <div className="form-control">
               <label className="label">
@@ -80,3 +107,8 @@ const Registration = () => {
 };
 
 export default Registration;
+
+/**
+ *
+ *
+ * **/
