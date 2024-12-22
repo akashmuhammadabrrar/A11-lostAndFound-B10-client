@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import icon from "../../assets/icon_them_bg.png";
 
 const Navbar = () => {
   const links = (
@@ -20,11 +21,15 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-300 fixed top-0">
+    <div className="navbar bg-base-300 fixed top-0 z-50 max-w-7xl">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl font-bold">
-          <span className="text-blue-500">Query</span>Stuff
-        </Link>
+        <div className="flex flex-row justify-center items-center">
+          <Link to="/" className="btn btn-ghost text-xl font-bold">
+            <img className="w-7" src={icon} alt="" />{" "}
+            <span className="text-blue-500">Query</span>
+            Stuff
+          </Link>
+        </div>
       </div>
       {/* search input field */}
       <div className="navbar-start ">
