@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../Context/AuthContext/AuthContext";
+import SocialAuth from "../../Shared/SocialAuth";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
@@ -98,6 +99,10 @@ const Registration = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
+              <div className="divider">Or</div>
+              <button className="btn btn-accent">
+                <SocialAuth></SocialAuth>
+              </button>
             </div>
           </form>
         </div>
