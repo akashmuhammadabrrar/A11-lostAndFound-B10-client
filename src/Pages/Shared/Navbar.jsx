@@ -20,16 +20,16 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link className="justify-between">
+        <Link to="/addItems" className="justify-between">
           Add Lost & Found
           <span className="badge">New</span>
         </Link>
       </li>
       <li>
-        <Link>All Recovered</Link>
+        <Link to="/allRecovered">All Recovered</Link>
       </li>
       <li>
-        <Link>Manage My Items</Link>
+        <Link to="/myItems">Manage My Items</Link>
       </li>
     </>
   );
