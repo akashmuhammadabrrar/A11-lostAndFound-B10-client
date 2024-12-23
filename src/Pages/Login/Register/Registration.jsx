@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../Context/AuthContext/AuthContext";
 import SocialAuth from "../../Shared/SocialAuth";
+import { toast } from "react-toastify";
 
 const Registration = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, user, setUser } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,13 +19,24 @@ const Registration = () => {
     // password validation
     const isValid = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password);
     if (!isValid) {
-      alert("Password is not valid");
+      toast.error(
+        "Password Must be 6 character and a uppercase and a lowercase"
+      );
       return;
     }
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        const user = result.user;
+        setUser(user);
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+            navigate("/");
+            toast.success("Registration Successful");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       })
       .catch((error) => {
         console.log(error.message);

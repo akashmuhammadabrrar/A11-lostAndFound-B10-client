@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
 
@@ -36,7 +37,12 @@ const AuthProvider = ({ children }) => {
   //   social login with google
   const signInWithGoogle = () => {
     setLoading(true);
-    signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // update users profile
+  const updateUserProfile = (updatedData) => {
+    return updateProfile(auth.currentUser, updatedData);
   };
 
   //   observer functionality
@@ -55,10 +61,12 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     loading,
+    setUser,
     createUser,
     loginUser,
     logOutUser,
     signInWithGoogle,
+    updateUserProfile,
   };
 
   return (

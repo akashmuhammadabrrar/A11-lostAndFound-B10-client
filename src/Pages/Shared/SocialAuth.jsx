@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import google from "../../assets/icons8-google-48.png";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const SocialAuth = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { signInWithGoogle, user, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
+        setUser(result.user);
+        navigate("/");
         console.log(result.user);
       })
       .catch((error) => {

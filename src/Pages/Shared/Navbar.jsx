@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import icon from "../../assets/icon_them_bg.png";
+import userIcon from "../../assets/users.png";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 
 const Navbar = () => {
@@ -83,10 +84,19 @@ const Navbar = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+              {user && user?.email ? (
+                <div>
+                  <img
+                    referrerPolicy="no-referrer"
+                    src={user?.photoURL}
+                    title={user?.displayName}
+                    alt=""
+                  />
+                  <p className="w-10 rounded-full">{user?.displayName}</p>
+                </div>
+              ) : (
+                <img alt="Tailwind CSS Navbar component" src={userIcon} />
+              )}
             </div>
           </div>
           <ul

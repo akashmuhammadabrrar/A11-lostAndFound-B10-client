@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import SocialAuth from "../Shared/SocialAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,9 +18,11 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success("Successfully Logged In");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error("Firebase error for login");
       });
   };
 
@@ -62,7 +68,11 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
+            <div className="divider">Or</div>
           </form>
+          <button className="btn btn-accent">
+            <SocialAuth></SocialAuth>
+          </button>
         </div>
       </div>
     </div>
