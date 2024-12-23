@@ -6,6 +6,8 @@ import Registration from "../Pages/Login/Register/Registration";
 import LostAndFound from "../Pages/LostAndFound/LostAndFound";
 import AllRecovered from "../Pages/Recoverd/AllRecovered";
 import ManagesItems from "../Pages/Manages/ManagesItems";
+import AllItems from "../Pages/AllItems/AllItems";
+import ItemDetails from "../Pages/ItemDetails/ItemDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,16 @@ const router = createBrowserRouter([
       {
         path: "/myItems",
         element: <ManagesItems></ManagesItems>,
+      },
+      {
+        path: "/AllItems",
+        element: <AllItems></AllItems>,
+      },
+      {
+        path: "/allStuff/:id",
+        element: <ItemDetails></ItemDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allStuff/${params.id}`),
       },
       {
         path: "/login",

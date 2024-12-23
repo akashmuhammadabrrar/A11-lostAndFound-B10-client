@@ -26,6 +26,12 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
+        <Link to="/AllItems" className="justify-between">
+          All Items
+          <span className="badge">New</span>
+        </Link>
+      </li>
+      <li>
         <Link to="/allRecovered">All Recovered</Link>
       </li>
       <li>

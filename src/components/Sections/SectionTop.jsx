@@ -12,6 +12,7 @@ const SectionTop = () => {
           And You will get a gratitude
         </p>
       </div>
+      <div className="divider">Here</div>
     </div>
   );
 };
