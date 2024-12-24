@@ -1,8 +1,18 @@
 import React from "react";
 import { FaMapLocation } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import Modal from "../../components/Modal/Modal";
 
 const ItemDetails = () => {
+  const handleButtonClick = () => {
+    const modal = document.getElementById("my_modal_5");
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Modal element not found");
+    }
+  };
+
   const {
     email,
     nameContact,
@@ -48,13 +58,20 @@ const ItemDetails = () => {
             </p>
             <div className="mt-6">
               {type === "Lost" ? (
-                <button className="btn btn-accent">Found This</button>
+                <button onClick={handleButtonClick} className="btn btn-accent">
+                  Found This
+                </button>
               ) : (
-                <button className="btn btn-accent ">This Is Mine</button>
+                <button onClick={handleButtonClick} className="btn btn-accent ">
+                  This Is Mine
+                </button>
               )}
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Modal></Modal>
       </div>
     </div>
   );
