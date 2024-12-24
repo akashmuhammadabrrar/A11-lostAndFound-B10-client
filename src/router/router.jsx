@@ -8,6 +8,7 @@ import AllRecovered from "../Pages/Recoverd/AllRecovered";
 import ManagesItems from "../Pages/Manages/ManagesItems";
 import AllItems from "../Pages/AllItems/AllItems";
 import ItemDetails from "../Pages/ItemDetails/ItemDetails";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,23 +24,40 @@ const router = createBrowserRouter([
       },
       {
         path: "/addItems",
-        element: <LostAndFound></LostAndFound>,
+        element: (
+          <PrivetRoute>
+            <LostAndFound></LostAndFound>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/allRecovered",
-        element: <AllRecovered></AllRecovered>,
+        element: (
+          <PrivetRoute>
+            <AllRecovered></AllRecovered>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/myItems",
-        element: <ManagesItems></ManagesItems>,
+        element: (
+          <PrivetRoute>
+            <ManagesItems></ManagesItems>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/AllItems",
         element: <AllItems></AllItems>,
+        loader: () => fetch("http://localhost:5000/allStuff"),
       },
       {
         path: "/allStuff/:id",
-        element: <ItemDetails></ItemDetails>,
+        element: (
+          <PrivetRoute>
+            <ItemDetails></ItemDetails>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allStuff/${params.id}`),
       },

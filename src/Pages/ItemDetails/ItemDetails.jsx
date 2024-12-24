@@ -47,8 +47,11 @@ const ItemDetails = () => {
               <span className="font-bold">Name-Contact</span>: {nameContact}
             </p>
             <div className="mt-6">
-              <button className="btn btn-primary">Get Started</button>
-              <button className="btn btn-primary ml-3">Get Started</button>
+              {type === "Lost" ? (
+                <button className="btn btn-accent">Found This</button>
+              ) : (
+                <button className="btn btn-accent ">This Is Mine</button>
+              )}
             </div>
           </div>
         </div>

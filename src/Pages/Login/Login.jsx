@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import SocialAuth from "../Shared/SocialAuth";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location, "from login");
+  const from = location?.state || "/";
 
   const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Successfully Logged In");
-        navigate("/");
+        navigate(from);
       })
       .catch((error) => {
         toast.error("Firebase error for login");
