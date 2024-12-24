@@ -71,7 +71,18 @@ const ItemDetails = () => {
         </div>
       </div>
       <div>
-        <Modal></Modal>
+        <Modal
+          prop={{
+            email,
+            nameContact,
+            title,
+            photo,
+            date,
+            category,
+            location,
+            type,
+            description,
+          }}></Modal>
       </div>
     </div>
   );

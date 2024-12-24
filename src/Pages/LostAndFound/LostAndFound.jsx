@@ -41,6 +41,7 @@ const LostAndFound = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        alert("post added successfully");
         form.reset();
       });
   };

@@ -45,6 +45,7 @@ const router = createBrowserRouter([
             <ManagesItems></ManagesItems>
           </PrivetRoute>
         ),
+        loader: () => fetch("http://localhost:5000/allStuff"),
       },
       {
         path: "/AllItems",
