@@ -16,10 +16,6 @@ const LatestItemsCard = ({ item }) => {
     location,
   } = item || {};
 
-  //   padding: 1rem /* 16px */;
-  //     font-size: 0.875rem /* 14px */;
-  //     line-height: 1.25rem /* 20px */;
-
   return (
     <div className="card bg-base-300  shadow-xl rounded-md">
       <figure>
