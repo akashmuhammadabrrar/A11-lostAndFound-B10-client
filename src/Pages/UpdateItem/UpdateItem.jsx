@@ -1,9 +1,26 @@
-import React, { useContext } from "react";
-import AuthContext from "../../Context/AuthContext/AuthContext";
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
-const LostAndFound = () => {
-  const { user } = useContext(AuthContext);
+const UpdateItem = () => {
+  //   const { user } = useAuth();
+  const itemUpdate = useLoaderData();
+
+  // console.table(itemUpdate);
+
+  const {
+    _id,
+    nameContact,
+    type,
+    photo,
+    title,
+    description,
+    category,
+    location,
+    date,
+    email,
+  } = itemUpdate;
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -18,7 +35,7 @@ const LostAndFound = () => {
     const location = form.location.value;
     const date = form.dateLostOrFound.value;
 
-    const newItems = {
+    const updatedItem = {
       email,
       nameContact,
       type,
@@ -29,29 +46,27 @@ const LostAndFound = () => {
       location,
       date,
     };
-    console.log(newItems);
+    console.log(updatedItem);
 
     // send data to the server side
-    fetch("http://localhost:5000/lostAndFounds", {
-      method: "POST",
+    fetch(`http://localhost:5000/lostAndFounds/${_id}`, {
+      method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(newItems),
+      body: JSON.stringify(updatedItem),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        Swal.fire("Item is Added Successfully !");
+        Swal.fire("Item is updated Successfully !");
         form.reset();
       });
   };
 
   return (
     <div className="mt-20">
-      <h2 className="text-3xl text-center font-semibold pb-5">
-        Add Lost And Found Items Here!
-      </h2>
+      <h2 className="text-3xl text-center py-5">Here we update The Items</h2>
 
       <div className="w-3/4 mx-auto mb-8 bg-slate-300">
         <form onSubmit={handleForm}>
@@ -59,7 +74,11 @@ const LostAndFound = () => {
             {/* Post Type */}
             <div className="form-control mb-4 ">
               <label className="label font-semibold">Post Type</label>
-              <select name="postType" className="select select-bordered w-full">
+              <select
+                name="postType"
+                defaultValue={type}
+                placeholder="type"
+                className="select select-bordered w-full">
                 <option value="Lost">Lost</option>
                 <option value="Found">Found</option>
               </select>
@@ -72,6 +91,7 @@ const LostAndFound = () => {
               </label>
               <input
                 type="url"
+                defaultValue={photo}
                 name="thumbnail"
                 className="input input-bordered w-full"
                 placeholder="Enter image URL"
@@ -85,6 +105,7 @@ const LostAndFound = () => {
             <input
               type="text"
               name="title"
+              defaultValue={title}
               className="input input-bordered w-full"
               placeholder="Enter title"
               required
@@ -96,6 +117,7 @@ const LostAndFound = () => {
             <label className="label font-semibold">Description</label>
             <textarea
               name="description"
+              defaultValue={description}
               className="textarea textarea-bordered w-full"
               placeholder="Enter description"
               required></textarea>
@@ -105,7 +127,10 @@ const LostAndFound = () => {
             {/* Category */}
             <div className="form-control mb-4">
               <label className="label font-semibold">Category</label>
-              <select name="category" className="select select-bordered w-full">
+              <select
+                name="category"
+                defaultValue={category}
+                className="select select-bordered w-full">
                 <option value="">Select Category</option>
                 <option value="Pets">Pets</option>
                 <option value="Documents">Documents</option>
@@ -120,6 +145,7 @@ const LostAndFound = () => {
               <input
                 type="text"
                 name="location"
+                defaultValue={location}
                 className="input input-bordered w-full"
                 placeholder="Enter location"
                 required
@@ -133,6 +159,7 @@ const LostAndFound = () => {
             <input
               type="date"
               name="dateLostOrFound"
+              defaultValue={date}
               className="input input-bordered w-full"
               required
             />
@@ -144,7 +171,7 @@ const LostAndFound = () => {
               <input
                 type="text"
                 name="contactName"
-                defaultValue={user?.displayName}
+                defaultValue={nameContact}
                 readOnly
                 className="input input-bordered w-full"
                 required
@@ -156,7 +183,7 @@ const LostAndFound = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue={user?.email}
+                defaultValue={email}
                 readOnly
                 className="input input-bordered w-full"
                 placeholder="Enter your email"
@@ -168,7 +195,7 @@ const LostAndFound = () => {
           {/* Submit Button */}
           <div className="form-control">
             <button type="submit" className="btn btn-primary w-full">
-              Add Post
+              Update Post
             </button>
           </div>
         </form>
@@ -177,4 +204,4 @@ const LostAndFound = () => {
   );
 };
 
-export default LostAndFound;
+export default UpdateItem;

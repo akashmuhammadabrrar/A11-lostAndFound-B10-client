@@ -9,6 +9,7 @@ import ManagesItems from "../Pages/Manages/ManagesItems";
 import AllItems from "../Pages/AllItems/AllItems";
 import ItemDetails from "../Pages/ItemDetails/ItemDetails";
 import PrivetRoute from "./PrivetRoute";
+import UpdateItem from "../Pages/UpdateItem/UpdateItem";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,13 @@ const router = createBrowserRouter([
             <ItemDetails></ItemDetails>
           </PrivetRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allStuff/${params.id}`),
+      },
+      // update and delete routes
+      {
+        path: "/updateItem/:id",
+        element: <UpdateItem></UpdateItem>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allStuff/${params.id}`),
       },

@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Table = ({ filteredItem }) => {
-  const { title, description, photo, location, date } = filteredItem;
+  const { _id, title, description, photo, location, date } = filteredItem;
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -42,7 +43,9 @@ const Table = ({ filteredItem }) => {
             <td>{date}</td>
             <th>{location}</th>
             <div className="flex justify-center items-center gap-2 mt-4">
-              <button className="btn ">Update</button>
+              <Link to={`/updateItem/${_id}`}>
+                <button className="btn ">Update</button>
+              </Link>
               <button className="btn bg-red-400">X</button>
             </div>
           </tr>
