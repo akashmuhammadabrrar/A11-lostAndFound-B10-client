@@ -2,6 +2,7 @@ import React from "react";
 import { FaMapLocation } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
+import { format } from "date-fns";
 
 const ItemDetails = () => {
   const handleButtonClick = () => {
@@ -40,9 +41,12 @@ const ItemDetails = () => {
               {" "}
               <span>Type</span>: {type}
             </p>
-            <p>
-              <span className="font-bold">Date</span>: {date}
-            </p>
+            {date && (
+              <p>
+                <span className="font-bold">Date</span>:{" "}
+                {format(new Date(date), "dd/mm/yyyy")}
+              </p>
+            )}
             <p>
               <span className="font-bold">category</span>: {category}
             </p>

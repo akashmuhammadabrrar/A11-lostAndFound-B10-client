@@ -1,6 +1,7 @@
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 
 const LatestItemsCard = ({ item }) => {
   const {
@@ -24,7 +25,11 @@ const LatestItemsCard = ({ item }) => {
       <div className="card-body">
         <h2 className="card-title">
           {title}
-          <div className="badge badge-secondary">Date: {date}</div>
+          {date && (
+            <div className="badge badge-secondary p-4">
+              Date: {format(new Date(date), "dd/mm/yyyy")}
+            </div>
+          )}
         </h2>
         <p style={{ margin: 0, padding: 0 }}>{description}</p>
         <div
@@ -38,9 +43,11 @@ const LatestItemsCard = ({ item }) => {
         <p className="font-bold" style={{ margin: 0, padding: 0 }}>
           Type: {type}{" "}
         </p>
-        <p className="font-bold" style={{ margin: 0, padding: 0 }}>
-          Date: {date}{" "}
-        </p>
+        {date && (
+          <div className="badge badge-secondary">
+            Date: {format(new Date(date), "dd/mm/yyyy")}
+          </div>
+        )}
 
         <div className="card-actions justify-start">
           <Link

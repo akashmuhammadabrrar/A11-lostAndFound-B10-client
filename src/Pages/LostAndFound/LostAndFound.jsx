@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import { format } from "date-fns";
+import "react-datepicker/dist/react-datepicker.css";
 
 const LostAndFound = () => {
   const { user } = useContext(AuthContext);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -16,7 +20,7 @@ const LostAndFound = () => {
     const description = form.description.value;
     const category = form.category.value;
     const location = form.location.value;
-    const date = form.dateLostOrFound.value;
+    // const date = form.dateLostOrFound.value;
 
     const newItems = {
       email,
@@ -27,7 +31,7 @@ const LostAndFound = () => {
       description,
       category,
       location,
-      date,
+      date: selectedDate,
     };
     console.log(newItems);
 
@@ -130,10 +134,12 @@ const LostAndFound = () => {
           {/* Date Lost or Found */}
           <div className="form-control mb-4">
             <label className="label font-semibold">Date Lost/Found</label>
-            <input
-              type="date"
-              name="dateLostOrFound"
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd-MM-yyy"
               className="input input-bordered w-full"
+              placeholderText="Select a date"
               required
             />
           </div>

@@ -5,7 +5,7 @@ import Table from "../../components/Table/Table";
 
 const ManagesItems = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const items = useLoaderData();
 
   const filteredItems = items.filter((item) => item.email === user?.email);
