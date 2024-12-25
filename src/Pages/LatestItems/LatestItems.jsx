@@ -6,7 +6,7 @@ const LatestItems = () => {
   const remainingItems = items?.slice(0, 6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allStuff", {})
+    fetch("http://localhost:5000/allStuff")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);

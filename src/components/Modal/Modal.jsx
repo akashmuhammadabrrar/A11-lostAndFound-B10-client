@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ prop }) => {
   const { user } = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Modal = ({ prop }) => {
     type,
     description,
   } = prop;
+  const navigate = useNavigate();
 
   //   console.table({
   //     email,
@@ -34,6 +36,8 @@ const Modal = ({ prop }) => {
     const nameContact = form.nameContact.value;
     const emailContact = form.emailContact.value;
     const date = form.date.value;
+    const title = form.title.value;
+    const photo = form.photo.value;
     const location = form.location.value;
     const type = form.type.value;
     const userPhoto1 = form.userPhoto1.value;
@@ -48,7 +52,9 @@ const Modal = ({ prop }) => {
       userPhoto1,
       userName,
       userEmail,
-      type,
+      type: "Recovered",
+      photo,
+      title,
     };
 
     // send data to the database
@@ -70,6 +76,7 @@ const Modal = ({ prop }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/allRecovered");
         }
       });
   };
@@ -110,7 +117,6 @@ const Modal = ({ prop }) => {
               <span className="label-text">Recovered Date</span>
             </div>
             <input
-              value={date}
               name="date"
               type="date"
               className="input input-bordered w-full max-w-xs"
@@ -120,8 +126,6 @@ const Modal = ({ prop }) => {
               <span className="label-text">Recovered Location</span>
             </div>
             <input
-              readOnly
-              value={location}
               name="location"
               type="text"
               className="input input-bordered w-full max-w-xs"
@@ -137,6 +141,17 @@ const Modal = ({ prop }) => {
               type="text"
               className="input input-bordered w-full max-w-xs"
             />
+            {/* title */}
+            <div className="label">
+              <span className="label-text">Title</span>
+            </div>
+            <input
+              readOnly
+              value={title}
+              name="title"
+              type="text"
+              className="input input-bordered w-full max-w-xs"
+            />
             {/* User Image */}
             <div className="label">
               <span className="label-text">User Image</span>
@@ -145,6 +160,17 @@ const Modal = ({ prop }) => {
               readOnly
               value={user?.photoURL}
               name="userPhoto1"
+              type="text"
+              className="input input-bordered w-full max-w-xs"
+            />
+            {/* stuff image */}
+            <div className="label">
+              <span className="label-text"> Photos</span>
+            </div>
+            <input
+              readOnly
+              value={photo}
+              name="photo"
               type="text"
               className="input input-bordered w-full max-w-xs"
             />
