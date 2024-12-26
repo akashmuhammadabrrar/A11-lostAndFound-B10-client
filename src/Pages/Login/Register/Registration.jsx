@@ -35,13 +35,13 @@ const Registration = () => {
             toast.success("Registration Successful");
           })
           .catch((error) => {
-            console.log(error.message);
+            // console.log(error.message);
           });
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
-    console.log({ name, email, password, photo });
+    // console.log({ name, email, password, photo });
   };
 
   return (

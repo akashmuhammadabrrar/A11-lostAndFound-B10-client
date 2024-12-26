@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location, "from login");
+  // console.log(location, "from login");
   const from = location?.state || "/";
 
   const navigate = useNavigate();
@@ -17,10 +17,10 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         toast.success("Successfully Logged In");
         navigate(from);
       })

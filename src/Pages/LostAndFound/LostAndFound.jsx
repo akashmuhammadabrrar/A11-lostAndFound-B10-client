@@ -33,10 +33,10 @@ const LostAndFound = () => {
       location,
       date: selectedDate,
     };
-    console.log(newItems);
+    // console.log(newItems);
 
     // send data to the server side
-    fetch("http://localhost:5000/lostAndFounds", {
+    fetch("https://lost-and-found-server-delta.vercel.app/lostAndFounds", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -45,7 +45,7 @@ const LostAndFound = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         Swal.fire("Item is Added Successfully !");
         form.reset();
       });

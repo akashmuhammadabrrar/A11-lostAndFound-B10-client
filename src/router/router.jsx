@@ -46,12 +46,14 @@ const router = createBrowserRouter([
             <ManagesItems></ManagesItems>
           </PrivetRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allStuff"),
+        loader: () =>
+          fetch("https://lost-and-found-server-delta.vercel.app/allStuff"),
       },
       {
         path: "/AllItems",
         element: <AllItems></AllItems>,
-        loader: () => fetch("http://localhost:5000/allStuff"),
+        loader: () =>
+          fetch("https://lost-and-found-server-delta.vercel.app/allStuff"),
       },
       {
         path: "/allStuff/:id",
@@ -61,14 +63,18 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allStuff/${params.id}`),
+          fetch(
+            `https://lost-and-found-server-delta.vercel.app/allStuff/${params.id}`
+          ),
       },
       // update and delete routes
       {
         path: "/updateItem/:id",
         element: <UpdateItem></UpdateItem>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allStuff/${params.id}`),
+          fetch(
+            `https://lost-and-found-server-delta.vercel.app/allStuff/${params.id}`
+          ),
       },
       {
         path: "/login",

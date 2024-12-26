@@ -4,13 +4,13 @@ import Swal from "sweetalert2";
 
 const Table = ({ remainingItem }) => {
   const { manageItem, setManageItem, filteredItem } = remainingItem;
-  console.log(manageItem);
+  // console.log(manageItem);
 
   const { _id, title, description, photo, location, date } = filteredItem;
 
   // delete operation
   const handleDelete = (_id) => {
-    console.log(_id);
+    // console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -21,12 +21,15 @@ const Table = ({ remainingItem }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allStuff/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://lost-and-found-server-delta.vercel.app/allStuff/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               const filteredItem = manageItem.filter((item) => {
                 return item._id !== _id;

@@ -46,19 +46,22 @@ const UpdateItem = () => {
       location,
       date,
     };
-    console.log(updatedItem);
+    // console.log(updatedItem);
 
     // send data to the server side
-    fetch(`http://localhost:5000/lostAndFounds/${_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(updatedItem),
-    })
+    fetch(
+      `https://lost-and-found-server-delta.vercel.app/lostAndFounds/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updatedItem),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         Swal.fire("Item is updated Successfully !");
         form.reset();
       });

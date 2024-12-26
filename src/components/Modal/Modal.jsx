@@ -22,7 +22,7 @@ const Modal = ({ prop }) => {
     type,
     description,
   } = prop;
-  console.log(prop);
+  // console.log(prop);
   const navigate = useNavigate();
 
   //   console.table({
@@ -66,22 +66,25 @@ const Modal = ({ prop }) => {
       title,
     };
 
-    fetch(`http://localhost:5000/item-submitted?email=${user?.email}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://lost-and-found-server-delta.vercel.app/item-submitted?email=${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const exist = data.some((d) => {
           return d.itemId == _id;
         });
         if (exist) {
           return toast.error("Items already existed");
         }
-        fetch("http://localhost:5000/item-submit", {
+        fetch("https://lost-and-found-server-delta.vercel.app/item-submit", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

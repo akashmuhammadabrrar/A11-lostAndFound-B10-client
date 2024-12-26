@@ -7,7 +7,7 @@ const LatestItems = () => {
   const remainingItems = items?.slice(0, 6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allStuff")
+    fetch("https://lost-and-found-server-delta.vercel.app/allStuff")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);

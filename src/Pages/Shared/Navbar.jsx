@@ -10,10 +10,10 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOutUser()
       .then(() => {
-        console.log("log out successful");
+        // console.log("log out successful");
       })
       .catch((error) => {
-        console.log("failed to logout", error.message);
+        // console.log("failed to logout", error.message);
       });
   };
 

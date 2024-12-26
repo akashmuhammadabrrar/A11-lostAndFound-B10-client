@@ -7,7 +7,9 @@ const AllRecovered = () => {
   const [recoveredItems, setRecoveredItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/item-submitted?email=${user?.email}`)
+    fetch(
+      `https://lost-and-found-server-delta.vercel.app/item-submitted?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setRecoveredItems(data);

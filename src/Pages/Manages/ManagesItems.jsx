@@ -8,14 +8,14 @@ const ManagesItems = () => {
   const [manageItem, setManageItem] = useState([]);
   // console.log(user);
   const items = useLoaderData();
-  console.log(items);
+  // console.log(items);
 
   const filteredItems = items.filter((item) => item.email === user?.email);
   useEffect(() => {
     setManageItem(filteredItems);
   }, []);
 
-  console.log(filteredItems);
+  // console.log(filteredItems);
 
   return (
     <div className="mt-20">
