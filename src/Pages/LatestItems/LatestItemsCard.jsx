@@ -2,6 +2,7 @@ import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { easeInOut, easeOut, motion } from "framer-motion";
 
 const LatestItemsCard = ({ item }) => {
   const {
@@ -20,7 +21,13 @@ const LatestItemsCard = ({ item }) => {
   return (
     <div className="card bg-base-300  shadow-xl rounded-md">
       <figure>
-        <img className="w-48 rounded-md" src={photo} alt="Shoes" />
+        <motion.img
+          className="w-48 rounded-md"
+          animate={{ y: [0, 30, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          src={photo}
+          alt="Shoes"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
