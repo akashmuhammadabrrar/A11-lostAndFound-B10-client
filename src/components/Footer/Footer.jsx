@@ -3,7 +3,7 @@ import icon from "../../assets/icon_them_bg.png";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <footer className="footer bg-base-200 text-base-content p-10 mt-40">
       <aside>
         <img src={icon} alt="" />
         <p>

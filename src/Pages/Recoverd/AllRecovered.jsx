@@ -45,7 +45,7 @@ const AllRecovered = () => {
           <tbody>
             {/* row 1 */}
 
-            {recoveredItems.map((recItem) => (
+            {recoveredItems?.map((recItem) => (
               <tr key={recItem._id}>
                 <td>
                   <div className="flex items-center gap-3">

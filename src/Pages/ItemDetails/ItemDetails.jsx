@@ -23,6 +23,7 @@ const ItemDetails = () => {
     category,
     location,
     type,
+    _id,
     description,
   } = useLoaderData();
 
@@ -78,6 +79,7 @@ const ItemDetails = () => {
         <Modal
           prop={{
             email,
+            _id,
             nameContact,
             title,
             photo,

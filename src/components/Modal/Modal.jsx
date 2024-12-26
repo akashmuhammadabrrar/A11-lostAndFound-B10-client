@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { format } from "date-fns";
+import { toast, ToastContainer } from "react-toastify";
 
 const Modal = ({ prop }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -13,6 +14,7 @@ const Modal = ({ prop }) => {
     email,
     nameContact,
     title,
+    _id,
     photo,
     date,
     category,
@@ -20,6 +22,7 @@ const Modal = ({ prop }) => {
     type,
     description,
   } = prop;
+  console.log(prop);
   const navigate = useNavigate();
 
   //   console.table({
@@ -39,6 +42,7 @@ const Modal = ({ prop }) => {
     const form = e.target;
     const nameContact = form.nameContact.value;
     const emailContact = form.emailContact.value;
+    const itemId = _id;
     // const date = form.date.value;
     const title = form.title.value;
     const photo = form.photo.value;
@@ -50,6 +54,7 @@ const Modal = ({ prop }) => {
 
     const submitData = {
       nameContact,
+      itemId,
       emailContact,
       date: selectedDate,
       location,
@@ -61,27 +66,41 @@ const Modal = ({ prop }) => {
       title,
     };
 
-    // send data to the database
-
-    fetch("http://localhost:5000/item-submit", {
-      method: "POST",
+    fetch(`http://localhost:5000/item-submitted?email=${user?.email}`, {
+      method: "GET",
       headers: {
-        "Content-type": "application/json",
+        "content-type": "application/json",
       },
-      body: JSON.stringify(submitData),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your Submission Successful",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/allRecovered");
+        console.log(data);
+        const exist = data.some((d) => {
+          return d.itemId == _id;
+        });
+        if (exist) {
+          return toast.error("Items already existed");
         }
+        fetch("http://localhost:5000/item-submit", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(submitData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your Submission Successful",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/allRecovered");
+            }
+          });
       });
   };
 
@@ -135,6 +154,7 @@ const Modal = ({ prop }) => {
             <input
               name="location"
               type="text"
+              required
               className="input input-bordered w-full max-w-xs"
             />
             {/* Type */}
@@ -215,6 +235,7 @@ const Modal = ({ prop }) => {
           </div>
         </div>
       </dialog>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

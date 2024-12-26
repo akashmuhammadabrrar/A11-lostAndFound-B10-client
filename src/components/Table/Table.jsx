@@ -2,7 +2,10 @@ import React from "react";
 import { data, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Table = ({ filteredItem }) => {
+const Table = ({ remainingItem }) => {
+  const { manageItem, setManageItem, filteredItem } = remainingItem;
+  console.log(manageItem);
+
   const { _id, title, description, photo, location, date } = filteredItem;
 
   // delete operation
@@ -25,6 +28,10 @@ const Table = ({ filteredItem }) => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
+              const filteredItem = manageItem.filter((item) => {
+                return item._id !== _id;
+              });
+              setManageItem(filteredItem);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
