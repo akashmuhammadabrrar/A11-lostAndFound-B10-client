@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LatestItemsCard from "./LatestItemsCard";
+import { Link } from "react-router-dom";
 
 const LatestItems = () => {
   const [items, setItems] = useState([]);
@@ -19,6 +20,11 @@ const LatestItems = () => {
         {remainingItems.map((item) => (
           <LatestItemsCard key={item._id} item={item}></LatestItemsCard>
         ))}
+      </div>
+      <div className="ml-10">
+        <Link to="/AllItems">
+          <button className="btn btn-outline btn-accent">See All</button>
+        </Link>
       </div>
     </div>
   );

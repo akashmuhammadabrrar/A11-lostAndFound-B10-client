@@ -10,14 +10,13 @@ import AllItems from "../Pages/AllItems/AllItems";
 import ItemDetails from "../Pages/ItemDetails/ItemDetails";
 import PrivetRoute from "./PrivetRoute";
 import UpdateItem from "../Pages/UpdateItem/UpdateItem";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: (
-      <h2 className="text-2xl text-center mt-20">Routes Not Found</h2>
-    ),
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

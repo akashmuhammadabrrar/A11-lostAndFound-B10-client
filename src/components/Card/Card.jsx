@@ -17,7 +17,7 @@ const Card = ({ allItem }) => {
     location,
   } = allItem || {};
   return (
-    <div className="card bg-base-300  shadow-xl rounded-md">
+    <div className="card w-3/4 bg-base-300  shadow-xl rounded-md">
       <figure>
         <img className="w-60 rounded-md" src={photo} alt="Shoes" />
       </figure>

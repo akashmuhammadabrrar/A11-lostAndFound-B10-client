@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import { format } from "date-fns";
 
 const Modal = ({ prop }) => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   const { user } = useContext(AuthContext);
   const {
     email,
@@ -35,7 +39,7 @@ const Modal = ({ prop }) => {
     const form = e.target;
     const nameContact = form.nameContact.value;
     const emailContact = form.emailContact.value;
-    const date = form.date.value;
+    // const date = form.date.value;
     const title = form.title.value;
     const photo = form.photo.value;
     const location = form.location.value;
@@ -47,7 +51,7 @@ const Modal = ({ prop }) => {
     const submitData = {
       nameContact,
       emailContact,
-      date,
+      date: selectedDate,
       location,
       userPhoto1,
       userName,
@@ -116,10 +120,13 @@ const Modal = ({ prop }) => {
             <div className="label">
               <span className="label-text">Recovered Date</span>
             </div>
-            <input
-              name="date"
-              type="date"
-              className="input input-bordered w-full max-w-xs"
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd-MM-yyy"
+              className="input input-bordered w-full"
+              placeholderText="Select a date"
+              required
             />
             {/* recovered location */}
             <div className="label">

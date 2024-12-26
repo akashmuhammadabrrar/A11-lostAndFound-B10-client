@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { format } from "date-fns";
 
 const AllRecovered = () => {
   const { user } = useAuth();
@@ -68,7 +69,8 @@ const AllRecovered = () => {
                   {recItem.type}
                   <br />
                 </td>
-                <td>{recItem.date}</td>
+                {/* <td>{recItem.date}</td> */}
+                <td>{format(new Date(recItem.date), "dd/mm/yyyy")}</td>
                 <th>
                   <button className="btn btn-ghost btn-xs">
                     {recItem.location}

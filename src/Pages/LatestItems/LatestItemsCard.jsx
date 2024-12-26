@@ -20,7 +20,7 @@ const LatestItemsCard = ({ item }) => {
   return (
     <div className="card bg-base-300  shadow-xl rounded-md">
       <figure>
-        <img className="w-60 rounded-md" src={photo} alt="Shoes" />
+        <img className="w-48 rounded-md" src={photo} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
