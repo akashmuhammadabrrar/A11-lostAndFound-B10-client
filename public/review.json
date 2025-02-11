@@ -1,0 +1,30 @@
+[
+  {
+    "name": "John Doe",
+    "review": "Exceptional service! The team delivered exactly what we needed on time. Very professional.",
+    "rating": 5,
+    "profession": "Marketing Manager",
+    "image": "https://avatars.sched.co/8/90/1938608/avatar.jpg.320x320px.jpg?e62"
+  },
+  {
+    "name": "Jane Smith",
+    "review": "Highly skilled developers who understand the client's vision and execute perfectly.",
+    "rating": 4.8,
+    "profession": "Business Owner",
+    "image": "https://pbs.twimg.com/profile_images/1153336019007053824/JgRtys-h_400x400.jpg"
+  },
+  {
+    "name": "Michael Johnson",
+    "review": "Great communication and excellent results. Our new site performs beautifully.",
+    "rating": 4.6,
+    "profession": "Project Coordinator",
+    "image": "https://images.squarespace-cdn.com/content/v1/583c90afebbd1ac168e88f54/1648488176297-3EMUNC29I5GJJYNTW3YQ/Matthew-S-008.jpg?format=500w"
+  },
+  {
+    "name": "Emily Brown",
+    "review": "Professional, efficient, and highly knowledgeable. Would definitely recommend their services!",
+    "rating": 4.9,
+    "profession": "Creative Director",
+    "image": "https://i.pinimg.com/736x/ea/0b/c6/ea0bc6abc52801d5f19160e4365ec7eb.jpg"
+  }
+]
