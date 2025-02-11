@@ -5,9 +5,9 @@ const SectionA = () => {
     <div
       className="hero min-h-screen mt-10 mb-10"
       style={{
-        backgroundImage: "url(https://i.ibb.co.com/YPGPX10/img-a1.jpg",
+        backgroundImage: "url(https://i.ibb.co.com/xFzCB2Q/mac-Book-5.jpg",
       }}>
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-50"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold text-white">Hello there</h1>
@@ -16,7 +16,9 @@ const SectionA = () => {
             Stuff You Can Help Them To Found It. So Don't Late To Know And
             Explore More.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-accent btn-outline text-white font-bold">
+            Get Started
+          </button>
         </div>
       </div>
     </div>
