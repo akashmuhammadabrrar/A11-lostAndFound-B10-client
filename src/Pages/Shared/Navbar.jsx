@@ -88,6 +88,11 @@ const Navbar = () => {
               Contacts
             </NavLink>
           </li>
+          <li className="hidden lg:block">
+            <NavLink to="/jobs" className="lg:btn md:btn btn-sm btn-outline">
+              Blogs
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className=" flex-none gap-2">

@@ -4,18 +4,9 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 const Card = ({ allItem }) => {
-  const {
-    _id,
-    email,
-    nameContact,
-    type,
-    photo,
-    title,
-    description,
-    category,
-    date,
-    location,
-  } = allItem || {};
+  // console.log(allItem);
+  const { _id, type, photo, title, description, date, location } =
+    allItem || {};
   return (
     <div className="card w-3/4 mx-auto bg-base-300  shadow-xl rounded-md">
       <figure>
