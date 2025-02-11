@@ -14,6 +14,8 @@ import ErrorPage from "../Pages/Error/ErrorPage";
 import About from "../Pages/About/About";
 import Advertisement from "../Pages/Advertisement/Advertisement";
 import Marketing from "../Pages/Marketing/Marketing";
+import Jobs from "../Pages/Jobs/Jobs";
+import Contacts from "../Pages/Contacts/Contacts";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +99,14 @@ const router = createBrowserRouter([
       {
         path: "/marketing",
         element: <Marketing></Marketing>,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs></Jobs>,
+      },
+      {
+        path: "/contact",
+        element: <Contacts></Contacts>,
       },
     ],
   },
