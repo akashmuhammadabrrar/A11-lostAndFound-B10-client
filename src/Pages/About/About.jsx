@@ -25,7 +25,9 @@ const About = () => {
               worry and bring peace of mind by ensuring lost items find their
               way back home. Join our community to make a difference!
             </p>
-            <button className="btn btn-primary">Know More</button>
+            <button className="btn btn-accent btn-outline">
+              <span className="text-black font-bold">Know More</span>
+            </button>
           </div>
         </div>
       </div>

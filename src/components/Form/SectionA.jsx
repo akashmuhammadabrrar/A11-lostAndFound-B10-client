@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SectionA = () => {
   return (
@@ -16,9 +17,11 @@ const SectionA = () => {
             Stuff You Can Help Them To Found It. So Don't Late To Know And
             Explore More.
           </p>
-          <button className="btn btn-accent btn-outline text-white font-bold">
-            Get Started
-          </button>
+          <Link to="/about">
+            <button className="btn btn-accent btn-outline text-white font-bold">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </div>

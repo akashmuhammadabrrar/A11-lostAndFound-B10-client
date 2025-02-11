@@ -33,8 +33,8 @@ const SectionB = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary text-white font-bold">
-                Send
+              <button className="btn btn-accent btn-outline font-bold">
+                <span className="text-black">Send</span>
               </button>
             </div>
           </form>

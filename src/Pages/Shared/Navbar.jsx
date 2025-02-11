@@ -44,7 +44,7 @@ const Navbar = () => {
     <div className="navbar bg-base-300 fixed top-0 z-50 max-w-7xl mx-auto">
       <div className="flex-1">
         <div className="flex flex-row justify-center items-center">
-          <Link to="/" className="btn btn-ghost text-xl font-bold">
+          <Link to="/" className="btn btn-ghost text-xl font-bold lg:ml-6">
             <img className="w-7" src={icon} alt="" />{" "}
             <span className="text-blue-500">Query</span>
             Stuff
