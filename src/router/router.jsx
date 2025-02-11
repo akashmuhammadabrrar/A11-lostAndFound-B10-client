@@ -13,6 +13,7 @@ import UpdateItem from "../Pages/UpdateItem/UpdateItem";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import About from "../Pages/About/About";
 import Advertisement from "../Pages/Advertisement/Advertisement";
+import Marketing from "../Pages/Marketing/Marketing";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/advertisement",
         element: <Advertisement></Advertisement>,
+      },
+      {
+        path: "/marketing",
+        element: <Marketing></Marketing>,
       },
     ],
   },
