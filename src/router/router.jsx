@@ -12,6 +12,7 @@ import PrivetRoute from "./PrivetRoute";
 import UpdateItem from "../Pages/UpdateItem/UpdateItem";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import About from "../Pages/About/About";
+import Advertisement from "../Pages/Advertisement/Advertisement";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/advertisement",
+        element: <Advertisement></Advertisement>,
       },
     ],
   },
