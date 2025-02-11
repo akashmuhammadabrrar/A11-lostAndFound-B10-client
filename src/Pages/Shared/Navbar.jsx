@@ -41,7 +41,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-300 fixed top-0 z-50 max-w-7xl">
+    <div className="navbar bg-base-300 fixed top-0 z-50 max-w-7xl mx-auto">
       <div className="flex-1">
         <div className="flex flex-row justify-center items-center">
           <Link to="/" className="btn btn-ghost text-xl font-bold">
@@ -53,23 +53,25 @@ const Navbar = () => {
       </div>
       {/* search input field */}
       <div className="navbar-start ">
-        <ul className="text-xl menu-horizontal space-x-4 font-semibold">
+        <ul className="text-xl menu-horizontal space-x-1 lg:space-x-6 font-semibold">
           <li>
-            <NavLink to="/" className="btn">
+            <NavLink to="/" className="lg:btn md:btn btn-sm btn-outline ml-1">
               Home
             </NavLink>
           </li>
           {user ? (
             <>
               {" "}
-              <button onClick={handleLogOut} className="btn text-red-500">
+              <button
+                onClick={handleLogOut}
+                className="lg:text-red-600 font-bold text-red-600 lg:btn md:btn btn-sm btn-outline ">
                 Log Out
               </button>{" "}
             </>
           ) : (
             <>
               <li>
-                <Link className="btn" to="/login">
+                <Link className="lg:btn md:btn btn-sm btn-outline" to="/login">
                   Login
                 </Link>
               </li>
@@ -77,7 +79,7 @@ const Navbar = () => {
           )}
 
           <li>
-            <NavLink to="/about" className="btn">
+            <NavLink to="/about" className="lg:btn md:btn btn-sm btn-outline">
               About
             </NavLink>
           </li>

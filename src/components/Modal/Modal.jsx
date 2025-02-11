@@ -25,18 +25,6 @@ const Modal = ({ prop }) => {
   // console.log(prop);
   const navigate = useNavigate();
 
-  //   console.table({
-  //     email,
-  //     nameContact,
-  //     title,
-  //     photo,
-  //     date,
-  //     category,
-  //     location,
-  //     type,
-  //     description,
-  //   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
