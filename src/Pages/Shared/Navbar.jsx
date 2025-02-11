@@ -3,8 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import icon from "../../assets/icon_them_bg.png";
 import userIcon from "../../assets/users.png";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import { ThemeContext } from "../../Context/ThemeContext/ThemeContext";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const { user, logOutUser } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -49,6 +52,11 @@ const Navbar = () => {
             <span className="text-blue-500">Query</span>
             Stuff
           </Link>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
+            {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
+          </button>
         </div>
       </div>
       {/* search input field */}
