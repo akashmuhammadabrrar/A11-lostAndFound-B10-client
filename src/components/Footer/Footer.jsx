@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-base-200 text-base-content p-10 mt-40">
+    <footer className="footer bg-base-200 text-base-content p-10 mt-40 w-[100%] mx-auto">
       <aside>
         <Link to="/">
           <img src={icon} alt="" />
@@ -17,20 +17,20 @@ const Footer = () => {
       </aside>
       <nav>
         <h6 className="footer-title">Services</h6>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <Link className="link link-hover font-bold">Marketing</Link>
+        <Link className="link link-hover font-bold">Advertisement</Link>
       </nav>
       <nav>
         <h6 className="footer-title">Company</h6>
         <Link to="/about" className="link link-hover font-bold">
           About us
         </Link>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
+        <Link className="link link-hover font-bold">Contact</Link>
+        <Link className="link link-hover font-bold">Jobs</Link>
       </nav>
       <nav>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <Link className="link link-hover font-bold">Privacy policy</Link>
+        <Link className="link link-hover font-bold">Cookie policy</Link>
       </nav>
     </footer>
   );
