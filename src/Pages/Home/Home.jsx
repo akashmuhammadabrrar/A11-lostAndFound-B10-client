@@ -4,6 +4,7 @@ import SectionTop from "../../components/Sections/SectionTop";
 import LatestItems from "../LatestItems/LatestItems";
 import SectionA from "../../components/Form/SectionA";
 import SectionB from "../../components/Form/SectionB";
+import FeaturedItems from "../FeaturedItems/FeaturedItems";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <LatestItems></LatestItems>
       <SectionA></SectionA>
       <SectionB></SectionB>
+      <FeaturedItems></FeaturedItems>
     </div>
   );
 };
