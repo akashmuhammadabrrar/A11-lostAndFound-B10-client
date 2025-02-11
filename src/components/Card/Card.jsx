@@ -17,14 +17,18 @@ const Card = ({ allItem }) => {
     location,
   } = allItem || {};
   return (
-    <div className="card w-3/4 bg-base-300  shadow-xl rounded-md">
+    <div className="card w-3/4 mx-auto bg-base-300  shadow-xl rounded-md">
       <figure>
-        <img className="w-60 rounded-md" src={photo} alt="Shoes" />
+        <img
+          className="w-[75%] h-[80%] object-cover rounded-md "
+          src={photo}
+          alt="Shoes"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
           {title}
-          <div className="badge badge-secondary">
+          <div className=" text-sm bg-info-content text-white p-2 rounded-full">
             {date && (
               <p className="font-bold" style={{ margin: 0, padding: 0 }}>
                 Date: {format(new Date(date), "dd/mm/yyyy")}{" "}
@@ -32,7 +36,11 @@ const Card = ({ allItem }) => {
             )}
           </div>
         </h2>
-        <p style={{ margin: 0, padding: 0 }}>{description}</p>
+        <p style={{ margin: 0, padding: 0 }}>
+          {" "}
+          <span className="font-bold">Description:</span>{" "}
+          {description.slice(0, 30)}...
+        </p>
         <div
           className="flex justify-center items-center"
           style={{ margin: 0, padding: 0 }}>
