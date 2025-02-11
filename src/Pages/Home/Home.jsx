@@ -8,7 +8,9 @@ import SectionB from "../../components/Form/SectionB";
 const Home = () => {
   return (
     <div className="">
-      <Slider></Slider>
+      <div id="slider">
+        <Slider></Slider>
+      </div>
       <SectionTop></SectionTop>
       <LatestItems></LatestItems>
       <SectionA></SectionA>

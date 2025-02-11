@@ -67,8 +67,10 @@ const ItemDetails = () => {
                   Found This
                 </button>
               ) : (
-                <button onClick={handleButtonClick} className="btn btn-accent ">
-                  This Is Mine
+                <button
+                  onClick={handleButtonClick}
+                  className="btn btn-accent btn-outline">
+                  <span className="text-black font-bold"> This Is Mine</span>
                 </button>
               )}
             </div>
