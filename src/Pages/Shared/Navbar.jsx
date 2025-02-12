@@ -40,6 +40,13 @@ const Navbar = () => {
       <li>
         <Link to="/myItems">Manage My Items</Link>
       </li>
+      <li>
+        <button
+          onClick={toggleTheme}
+          className=" p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
+          {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
+        </button>
+      </li>
     </>
   );
 
@@ -54,7 +61,7 @@ const Navbar = () => {
           </Link>
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
+            className="hidden lg:block p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
             {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
           </button>
         </div>
