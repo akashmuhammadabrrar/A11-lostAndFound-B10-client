@@ -51,7 +51,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-300 fixed top-0 z-50 max-w-7xl mx-auto">
+    <div className="navbar bg-base-300 fixed top-0 z-50 w-full mx-auto">
       <div className="flex-1">
         <div className="flex flex-row justify-center items-center">
           <Link to="/" className="btn btn-ghost text-xl font-bold lg:ml-6">

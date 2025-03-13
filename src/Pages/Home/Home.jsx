@@ -11,7 +11,7 @@ import Reviews from "../Reviews/Reviews";
 const Home = () => {
   return (
     <div className="">
-      <div id="slider">
+      <div className="" id="slider ">
         <Slider></Slider>
       </div>
       <SectionTop></SectionTop>
