@@ -3,7 +3,7 @@ import sliderC from "../../assets/slider/sliderC.jpg";
 
 const About = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-16">
       <h2 className="text-3xl text-center py-10">This all About Us</h2>
 
       <div className="hero bg-base-200 min-h-screen ">

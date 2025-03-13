@@ -2,7 +2,7 @@ import React from "react";
 
 const Jobs = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-16">
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-semibold">
         Blogs And Articles About Modern World
       </h1>
